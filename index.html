@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PlayStation (PSX) Cue Maker</title>
+    <meta name="description" content="You have bins, but no cue. Salvation is here."/>
+    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="code.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body>
+    <h1>Autogenerate the missing CUE file for your PSX emulation bins.</h1>
+    <p>Emulating games is great fun, but while SNES, NES and Genesis games are easy to find and run, PlayStation games are a bit more complicated. Unlike the others, they come in a dozen of different disc formats.</p>
+    <p>Most commonly, you'll find PSX games distributed as a zip-file and inside you'll find one or more bin files. However, in order for emulators or virtual drive managers to load your game correctly, you often need a CUE-file. If you attempt to load the first bin directly, it will often work, but background music will be missing.</p>
+    <p>By studying the cue file syntax, you can write a suitable cue file for your bins in notepad, but who wants to spend time fiddleling with that, when it can be automated?</p>
+    <hr />
+    <p>Drag your bin files onto the file selector below and have the cue sheet generated automatically. Your files will <strong>not</strong> be uploaded or anything. The file selector is used to read the filenames of the bins, so this webpage can generate a cue sheet for you.</p>
+
+    <div>
+      <input id="filepicker" type="file" name="myfiles" multiple="multiple">
+    </div>
+    <div>
+      <textarea id="cuesheet" class="cuesheet"></textarea>
+    </div>
+    <div id="save_instructions"></div>
+
+  </body>
+</html>

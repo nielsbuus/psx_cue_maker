@@ -1,0 +1,13 @@
+.cuesheet {
+  margin-top: 40px;
+  width: 100%;
+  min-height: 400px;
+  white-space: pre;
+  font-family: monospace;
+}
+
+.cuefile-name-suggestion {
+  font-family: monospace;
+  font-size: 18px;
+  margin: 20px;
+}
