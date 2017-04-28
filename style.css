@@ -1,5 +1,12 @@
+body {
+  font-family: sans-serif;
+}
+
+.cuesheet-container {
+  padding: 30px;
+}
+
 .cuesheet {
-  margin-top: 40px;
   width: 100%;
   min-height: 400px;
   white-space: pre;
@@ -10,4 +17,24 @@
   font-family: monospace;
   font-size: 18px;
   margin: 20px;
+}
+
+.dropzone {
+  font-size: 18px;
+  padding: 50px;
+  background-color: #eee;
+  text-align: center;
+  border: 5px dotted #ccc;
+  margin: 30px;
+  transition: all 0.25s ease-in-out;
+}
+
+.dropzone.hover {
+  border-color: #bbb;
+}
+
+.dropzone.flash {
+  border: 5px dotted #888;
+  margin: 25px;
+  padding: 55px;
 }

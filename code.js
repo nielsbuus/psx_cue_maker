@@ -1,16 +1,42 @@
 $(function() {
 
-   $("#filepicker").change(function (){
-       var fileNames = extractFilenames(this);
-       var cueSheet = filenamesToCue(fileNames);
-       $("#cuesheet").text(cueSheet);
-       updateInstruction(fileNames[0]);
-     });
+  var dropzone = $("#dropzone")
+
+  dropzone.on("dragenter dragstart dragend dragleave dragover drag drop", function (e) {
+    e.preventDefault();
+  });
+
+
+  dropzone.on("dragenter", function() {
+    dropzone.addClass("hover")
+  })
+
+  dropzone.on("dragleave", function() {
+    dropzone.removeClass("hover")
+  })
+
+  dropzone.on("drop", function(e) {
+    dropzone.removeClass("hover")
+
+    var flasher = function(state) {
+      dropzone.toggleClass("flash", state)
+    }
+
+    flasher(true);
+
+    var fileNames = extractFilenames(e.originalEvent.dataTransfer.files)
+
+    setTimeout(function() {
+      flasher(false)
+      var cueSheet = filenamesToCue(fileNames);
+      $("#cuesheet").text(cueSheet);
+      updateInstruction(fileNames[0]);
+    }, 500)
+  })
 })
 
-function extractFilenames(fileInputElement) {
-  var files = $.makeArray(fileInputElement.files)
-  return files.map(function(file) {
+function extractFilenames(fileList) {
+  return $.makeArray(fileList).map(function(file) {
     return file.name
   })
 }
