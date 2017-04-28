@@ -1,5 +1,11 @@
 body {
   font-family: sans-serif;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top: 400px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 
 .cuesheet-container {
