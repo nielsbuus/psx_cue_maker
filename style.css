@@ -37,13 +37,19 @@ body {
 }
 
 .dropzone.hover {
-  border-color: #bbb;
+  border-color: #888;
+  margin: 28px;
+  padding: 52px;
 }
 
 .dropzone.flash {
   border: 5px dotted #888;
-  margin: 25px;
-  padding: 55px;
+  margin: 20px;
+  padding: 60px;
+}
+
+.dropzone * {
+  pointer-events: none;
 }
 
 .dropzone-tip {

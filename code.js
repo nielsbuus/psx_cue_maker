@@ -30,7 +30,7 @@ $(function() {
       flasher(false)
       var cueSheet = filenamesToCue(fileNames);
       $("#cuesheet").text(cueSheet);
-    }, 500)
+    }, 250)
   })
 })
 
