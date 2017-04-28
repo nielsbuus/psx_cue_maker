@@ -4,6 +4,7 @@ body {
   background-size: cover;
   background-attachment: fixed;
   padding-top: 400px;
+  padding-bottom: 200px;
   padding-left: 100px;
   padding-right: 100px;
 }
@@ -43,4 +44,10 @@ body {
   border: 5px dotted #888;
   margin: 25px;
   padding: 55px;
+}
+
+.dropzone-tip {
+  margin-top: 10px;
+  color: #777;
+  font-size: 12px;
 }

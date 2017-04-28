@@ -8,19 +8,26 @@
     <link href="style.css" rel="stylesheet" type="text/css" media="all">
   </head>
   <body>
-    <h1>Autogenerate the missing CUE file for your PSX emulation bins.</h1>
-    <p>Emulating games is great fun, but while SNES, NES and Genesis games are easy to find and run, PlayStation games are a bit more complicated. Unlike the others, they come in a dozen of different disc formats.</p>
-    <p>Most commonly, you'll find PSX games distributed as a zip-file and inside you'll find one or more bin files. However, in order for emulators or virtual drive managers to load your game correctly, you often need a CUE-file. If you attempt to load the first bin directly, it will often work, but background music will be missing.</p>
-    <p>By studying the cue file syntax, you can write a suitable cue file for your bins in notepad, but who wants to spend time fiddleling with that, when it can be automated?</p>
+    <h1>Autogenerate the missing cue file for your PSX emulation bins.</h1>
+    <p>Emulating games is fun, but while SNES, NES and Genesis games are easy to find and run, PlayStation games are a bit more complicated. Unlike the others, they come in a dozen of different disc formats.</p>
+    <p>Most commonly, you'll find PlayStation games distributed as a zip-file and inside you'll find one or more bin files. Each bin-file represents a track on the game CD-ROM. From my experience, the first track is always data and any subsequent tracks are audio - at least for PlayStation 1 games. Unfortunately, emulators and virtual drive managers won't load multiple tracks automatically. They need something called a <a href="https://en.wikipedia.org/wiki/Cue_sheet_(computing)">cue sheet</a>, which is a special textfile that works as a tracklist. It's supposed to represent a CD-ROM and define which tracks are on the CD-ROM, which order, what format they are (data or audio) and the filename of the bin file for each track.</p>
+
+    <p>Given the importance of this cue sheet, it's sad how distributors of roms often forget to generate/include the file (or include an invalid one). For ePSXe, it seems that you can load the first bin directly, but background music will be missing and you'll be disappointed. 😞</p>
+    <p>With a little technical skill and a great deal of patience you can write suitable cue-files yourself for each of your games in notepad, but it's errorprone, boring and it can be automated. So guess what, I have wrote the script, so you don't have to! 😊</p>
+    <p>Prior to making this webpage, I found a few existing tools that attempt to solve this issue. I tried three different ones - <a href="https://github.com/thorst/CueMaker">Thorst's CueMaker</a>, <a href="http://cue-maker.software.informer.com/2.4/">Liors Cue Maker 2.4</a> and <a href="http://theisozone.com/downloads/pc/other/cue-sheet-maker-w-drivers/">Lior's Cue Maker unknown version</a>. Unfortunately, neither of the tools seem to support games with multiple bin files and since these games are the one that won't have music without a cue sheet, these tools don't really solve the problem.
+    <p>This webpage also assumes that the first track is data, while all subsequent tracks are audio. This assumption seems to hold true for every PlayStation game I have tried so far. But
     <hr />
     <p>Drag your bin files onto the dropzone below and have the cue sheet generated automatically. Your files will <strong>not</strong> be uploaded or anything. The dropzone is used to read the filenames of the bins, so this webpage can generate a cue sheet for you.</p>
     <div id="dropzone" class="dropzone">
-      Drop your .bin files here!
+      <div>Drop your .bin files here!</div>
+      <div class="dropzone-tip">Make sure your binfiles are listed in the right track order, when you drag the files onto the dropzone. If the track order is wrong, the cue sheet won't work!</div>
     </div>
     <div class="cuesheet-container">
       <textarea id="cuesheet" class="cuesheet"></textarea>
     </div>
-    <div id="save_instructions"></div>
+    <div>
+      Once you have dragged your bins onto the dropzone, a cue sheet will appear in the textarea above. Copy the content into notepad.exe or whatever you prefer and save it in the same folder as your game bin files. You should have one folder per game and inside that folder, you should have the bins and the cue file. Keep in mind that the cue file references your bin files, so you feel a strange urge to rename the bin files, your cue sheet must be updated/regenerated to match the changes. While the name of the cue file itself doesn't matter, it's probably a good practice to name it after the game.
+    </div>
 
   </body>
 </html>

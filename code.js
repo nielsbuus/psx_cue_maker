@@ -30,7 +30,6 @@ $(function() {
       flasher(false)
       var cueSheet = filenamesToCue(fileNames);
       $("#cuesheet").text(cueSheet);
-      updateInstruction(fileNames[0]);
     }, 500)
   })
 })
@@ -65,9 +64,4 @@ function filenamesToCue(fileNames) {
 function padLeadingZero(number) {
   var padded = "0" + number;
   return padded.substr(padded.length-2);
-}
-
-function updateInstruction(firstFile) {
-  var cueFileName = firstFile.replace(/\(Track.+\)/i, "").trim().replace(/\s*\.bin$/, ".cue")
-  $("#save_instructions").html("Copy the content above and dump it into notepad.exe or whatever you prefer and save it to the same folder as your bins. If you don't know what to call your cue file, my crummy regex suggests: <div class=\"cuefile-name-suggestion\">" + cueFileName + "</div>")
 }
