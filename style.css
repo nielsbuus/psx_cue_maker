@@ -51,3 +51,8 @@ body {
   color: #777;
   font-size: 12px;
 }
+
+footer {
+  margin-top: 50px;
+  text-align: center
+}
