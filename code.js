@@ -37,7 +37,7 @@ $(function() {
 function extractFilenames(fileList) {
   return $.makeArray(fileList).map(function(file) {
     return file.name
-  })
+  }).sort()
 }
 
 function filenamesToCue(fileNames) {
